@@ -1,0 +1,8 @@
+[cola]
+	startupmode = list
+	spellcheck = false
+[user]
+	name = BeachfrontHost
+	email = charles@mazpc.com
+[gui]
+	editor = gvim
