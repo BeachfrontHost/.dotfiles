@@ -123,3 +123,8 @@ alias ns=nslookup
 alias media_start='sudo systemctl start plexmediaserver.service sonarr.service prowlarr.service sabnzbd.service'
 alias media_stop='sudo systemctl stop plexmediaserver.service sonarr.service prowlarr.service sabnzbd.service'
 
+eval $(thefuck --alias fuck)
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
+[ -f /usr/share/bash-completion/completions/fzf ] && source /usr/share/bash-completion/completions/fzf
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
