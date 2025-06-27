@@ -43,10 +43,13 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
+bindkey -v # vi mode
+
 bindkey '^f' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
+
 
 # History
 HISTSIZE=10000
@@ -79,6 +82,17 @@ alias vim='nvim'
 alias c='clear'
 alias wh='whois'
 alias ns='nslookup'
+alias sshnemo="kitten ssh nemo"
+alias sshlucy="kitten ssh lucy"
+alias sshstorbox="kitten ssh u322017.your-storagebox.de"
+alias sshhetzpmve="kitten ssh pmve.mazpc.net"
+alias sshfw2="kitten ssh fw2.mazpc.net"
+alias sshspeedyg="kitten ssh speedyg"
+alias sshpve="kitten ssh root@pve.mazpc.net"
+alias sshrouter="kitten ssh router.mazpc.net"
+alias sshfrigate="kitten ssh -i ~/.ssh/frigate_ed25519 root@frigate.mazpc.net"
+alias sshha="kitten ssh ha.mazpc.net"
+alias ssh66="kitten ssh 66.mazpc.net"
 
 export PATH="$PATH:/home/cswarts/.local/bin"
 
