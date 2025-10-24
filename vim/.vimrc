@@ -33,4 +33,5 @@ let g:airline#extensions#tabline#formatter = 'jsformatter' " path-to/f
 let g:airline#extensions#tabline#formatter = 'unique_tail' " file-name.js
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved' " f/p/file-name.js
 let g:airline_theme='gruvbox'
+let g:codeium_enabled = v:false
 nnoremap <F5> :UndotreeToggle<CR>

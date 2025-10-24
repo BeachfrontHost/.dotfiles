@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -18,7 +18,7 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+#zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -26,6 +26,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-you-should-use
+#zinit light spaceship-prompt/spaceship-prompt
 
 # Add in snippets
 zinit snippet OMZL::git.zsh
@@ -77,24 +78,35 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias ls='ls --color'
+#alias ls='ls --color'
+alias oldls='ls --color'
+alias olddu='du'
+alias ls='eza --icons'
+alias lsl='eza -l --icons -a'
+
+alias du='dust'
+alias df='duf'
 alias vim='nvim'
+alias mutt='neomutt'
 alias c='clear'
 alias wh='whois'
 alias ns='nslookup'
-alias sshnemo="kitten ssh nemo"
-alias sshlucy="kitten ssh lucy"
-alias sshstorbox="kitten ssh u322017.your-storagebox.de"
-alias sshhetzpmve="kitten ssh pmve.mazpc.net"
-alias sshfw2="kitten ssh fw2.mazpc.net"
-alias sshspeedyg="kitten ssh speedyg"
-alias sshpve="kitten ssh root@pve.mazpc.net"
-alias sshrouter="kitten ssh router.mazpc.net"
-alias sshfrigate="kitten ssh -i ~/.ssh/frigate_ed25519 root@frigate.mazpc.net"
-alias sshha="kitten ssh ha.mazpc.net"
-alias ssh66="kitten ssh 66.mazpc.net"
+alias sshnemo="ssh nemo"
+alias nemofs="sshfs nemo:/ ~/nemo -o sftp_server=\"/usr/bin/sudo /usr/libexec/openssh/sftp-server\""
+alias sshlucy="ssh lucy"
+alias sshstorbox="ssh u322017.your-storagebox.de"
+alias sshhetzpmve="ssh pmve.mazpc.net"
+alias sshfw2="ssh fw2.mazpc.net"
+alias sshspeedyg="ssh speedyg"
+alias sshpve="ssh root@pve.mazpc.net"
+alias sshrouter="ssh router.mazpc.net"
+alias sshfrigate="ssh -i ~/.ssh/frigate_ed25519 root@frigate.mazpc.net"
+alias sshha="ssh ha.mazpc.net"
+alias ssh66="ssh 66.mazpc.net"
 
 export PATH="$PATH:/home/cswarts/.local/bin"
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -102,5 +114,17 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval $(thefuck --alias fuck)
 
+eval "$(starship init zsh)"
 
+#eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/theme.omp.toml)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/cswarts/.lmstudio/bin"
+# End of LM Studio CLI section
 

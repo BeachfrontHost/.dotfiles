@@ -128,3 +128,8 @@ eval $(thefuck --alias fuck)
 [ -f /usr/share/bash-completion/completions/fzf ] && source /usr/share/bash-completion/completions/fzf
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/cswarts/.lmstudio/bin"
+# End of LM Studio CLI section
+
