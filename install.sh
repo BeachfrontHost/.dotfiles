@@ -39,11 +39,14 @@ install_homebrew() {
     return
   fi
 
-  echo "🚀 Installing Homebrew…"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "🚀 Installing Homebrew (non‑interactive)…"
+  # The installer expects a user, **not root**.
+  # Use NONINTERACTIVE=1 to skip the “Press RETURN” prompt.
+  NONINTERACTIVE=1 \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo "✅ Homebrew installation finished."
 
-  # Add Homebrew to PATH for the remainder of the script
+  # Add Homebrew to PATH for the remainder of this script
   eval "$(/opt/homebrew/bin/brew shellenv)" || eval "$(/usr/local/bin/brew shellenv)"
 }
 
