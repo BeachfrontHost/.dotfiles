@@ -43,7 +43,7 @@ install_homebrew() {
   # The installer expects a user, **not root**.
   # Use NONINTERACTIVE=1 to skip the “Press RETURN” prompt.
   NONINTERACTIVE=1 \
-    sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo "✅ Homebrew installation finished."
 
   # Add Homebrew to PATH for the remainder of this script
