@@ -48,6 +48,7 @@ install_homebrew() {
 
   # Add Homebrew to PATH for the remainder of this script
   eval "$(/opt/homebrew/bin/brew shellenv)" || eval "$(/usr/local/bin/brew shellenv)"
+  brew install -q gcc
 }
 
 # ──────────────────────────────────────────────────────
@@ -58,16 +59,16 @@ install_starship() {
     return
   fi
   echo "🚀 Installing Starship…"
-  brew install starship
+  brew install -q starship
   echo "✅ Starship installation finished."
 }
 
 #2.a install other brew packages
-brew install fzf
-brew install dust
-brew install eza
-brew install zoxide
-brew install lazygit
+brew install -q fzf
+brew install -q dust
+brew install -q eza
+brew install -q zoxide
+brew install -q lazygit
 
 # ──────────────────────────────────────────────────────
 # 3. Install GNU Stow
