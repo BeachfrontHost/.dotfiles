@@ -32,45 +32,6 @@ ask_yes_no() {
 }
 
 # ──────────────────────────────────────────────────────
-# 1. Ensure Homebrew is present
-install_homebrew() {
-  if command -v brew &>/dev/null; then
-    echo "✅ Homebrew already installed."
-    return
-  fi
-
-  echo "🚀 Installing Homebrew (non‑interactive)…"
-  # The installer expects a user, **not root**.
-  # Use NONINTERACTIVE=1 to skip the “Press RETURN” prompt.
-  NONINTERACTIVE=1 \
-    sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo "✅ Homebrew installation finished."
-
-  # Add Homebrew to PATH for the remainder of this script
-  eval "$(/opt/homebrew/bin/brew shellenv)" || eval "$(/usr/local/bin/brew shellenv)"
-  brew install -q gcc
-}
-
-# ──────────────────────────────────────────────────────
-# 2. Install Starship prompt
-install_starship() {
-  if brew list starship &>/dev/null; then
-    echo "✅ Starship already installed."
-    return
-  fi
-  echo "🚀 Installing Starship…"
-  brew install -q starship
-  echo "✅ Starship installation finished."
-}
-
-#2.a install other brew packages
-brew install -q fzf
-brew install -q dust
-brew install -q eza
-brew install -q zoxide
-brew install -q lazygit
-
-# ──────────────────────────────────────────────────────
 # 3. Install GNU Stow
 install_stow() {
   if command -v stow &>/dev/null; then
